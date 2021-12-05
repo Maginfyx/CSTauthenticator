@@ -1,4 +1,6 @@
-from flask import Flask
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 @app.route('/test', methods=['POST', 'GET'])
 def test():
@@ -8,3 +10,5 @@ def test():
         return msg
     print("RECEIVED >>",list(request.form))
     return render_template('index.html')
+
+app.run(host='0.0.0.0',port='1111',debug=False)
